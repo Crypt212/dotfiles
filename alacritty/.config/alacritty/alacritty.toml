@@ -1,0 +1,38 @@
+import = ["/home/crypt/.config/alacritty/colors.toml"]
+live_config_reload = true
+# "window.opacity" = 0.95
+
+[cursor]
+unfocused_hollow = false
+
+[cursor.style]
+blinking = "On"
+shape = "Block"
+
+[env]
+TERM = "alacritty"
+WINIT_X11_SCALE_FACTOR = "1.0"
+
+[window]
+decorations = "full"
+dynamic_title = true
+# history = 10000
+# multiplier = 3
+startup_mode = "Windowed"
+
+[window.dimensions]
+columns = 110
+lines = 35
+
+[window.padding]
+x = 10
+y = 10
+
+
+[font]
+size = 12.0
+offset = { x = 0, y = 4 }
+	[font.normal]
+	# family = "BigBlueTerm437 Nerd Font Mono"
+	family = "GohuFont 11 Nerd Font Mono"
+	style = "Bold"
