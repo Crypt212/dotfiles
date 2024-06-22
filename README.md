@@ -1,5 +1,5 @@
 # Welcome
-A setup for bspwm desktop manager with some additional packages add.
+A setup for {bspwm or i3} desktop manager with some additional packages added.
 
 ## Installation
 Simply run setup.sh file, it will symlink the dotfiles to your config files, and install some packages, comment out what you don't need.
@@ -11,12 +11,12 @@ xorg
 
 ### Dev
 <ul>
-    </li>stow
-    </li>git
-    </li>curl
-    </li>nodejs
-    </li>g++
-    </li>gcc
+    <li>stow
+    <li>git
+    <li>curl
+    <li>nodejs
+    <li>g++
+    <li>gcc
 </ul>
 
 ### Disktop 
