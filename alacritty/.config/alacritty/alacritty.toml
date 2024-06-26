@@ -1,6 +1,5 @@
 import = ["/home/crypt/.config/alacritty/colors.toml"]
 live_config_reload = true
-# "window.opacity" = 0.95
 
 [cursor]
 unfocused_hollow = false
@@ -14,6 +13,7 @@ TERM = "alacritty"
 WINIT_X11_SCALE_FACTOR = "1.0"
 
 [window]
+opacity = 0.95
 decorations = "full"
 dynamic_title = true
 # history = 10000

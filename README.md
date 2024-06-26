@@ -1,8 +1,8 @@
 # Welcome
-A setup for {bspwm or i3} desktop manager with some additional packages added.
+A setup for {bspwm or i3} desktop manager with some additional packages and fonts added.
 
 ## Installation
-Simply run setup.sh file, it will symlink the dotfiles to your config files, and install some packages, comment out what you don't need.
+Simply run setup.sh file, it will symlink the dotfiles to your config files, and install some packages, comment out what you don't need. it also adds some fonts, so make sure to check `no-stow/fonts/` directory to remove directories you don't need.
 
 ## Packages
 
@@ -56,7 +56,7 @@ xorg
     <li>neovim
     <li>gimp
     <li>scrot
-    <li>firefox 
+    <li>qutebrowser 
 </ul>
 
 ### Social

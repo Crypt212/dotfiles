@@ -31,7 +31,13 @@ exec --no-startup-id dex --autostart --environment i3
 exec_always --no-startup-id $HOME/.config/i3/launch.sh
 
 # Change keyboard layout
-bindsym Mod1+space exec $HOME/.config/i3/change_lang.sh
+exec_always "setxkbmap -model pc104 -layout us,ara -variant ,, -option grp:alt_shift_toggle"
+
+# Toggle picom
+bindsym $mod+p exec $HOME/.config/i3/toggle_picom.sh
+
+# Toggle polybar
+bindsym $mod+Shift+p exec $HOME/.config/i3/toggle_polybar.sh
 
 # Screenshoting
 bindsym Print exec --no-startup-id scrot $HOME/Screenshots/%Y-%m-%d-%T-screenshot.png
@@ -131,12 +137,12 @@ bindsym $mod+a focus parent
 # Define names for default workspaces for which we configure key bindings later>
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1:Terminal"
-set $ws2 "2:Firefox"
-set $ws3 "3:Telegram"
-set $ws4 "4:Discord"
-set $ws5 "5:ThunderBird"
-set $ws6 "6:Reader"
-set $ws7 "7:Editing"
+set $ws2 "2:Web"
+set $ws3 "3:Social"
+set $ws4 "4:E-mail"
+set $ws5 "5:Reader"
+set $ws6 "6:Editing"
+set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
@@ -174,7 +180,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+Mod1+space exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # gaps
 gaps inner 8
@@ -201,7 +207,7 @@ mode "resize" {
         # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
         bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
+        bindsym r mode "default"
 }
 
 bindsym $mod+r mode "resize"
@@ -211,7 +217,7 @@ bindsym $mod+r mode "resize"
 
 # Allocate applications to workspaces
 for_window [class="Alacritty"] move to workspace $ws1
-for_window [class="firefox"] move to workspace $ws2
+for_window [class="qutebrowser"] move to workspace $ws2
 for_window [class="TelegramDesktop"] move to workspace $ws3
 for_window [class="discord"] move to workspace $ws4
 for_window [class="thunderbird"] move to workspace $ws5
@@ -232,5 +238,5 @@ client.unfocused        $in-bgcolor     $in-bgcolor     $in-text        $in-bgco
 client.focused_inactive $in-bgcolor     $in-bgcolor     $in-text        $in-bgcolor
 client.urgent           $u-bgcolor      $u-bgcolor      $text   
 
-default_border pixel 0
-for_window [class="^.*"] border pixel 0
+default_border pixel 3
+for_window [class="^.*"] border pixel 3

@@ -16,20 +16,28 @@ echo $dirs | xargs -n 1 -I {} stow {} -R
 pacman -S xorg
 
 # Dev
-pacman -S curl nodejs g++ gcc
+pacman -S curl nodejs g++ gcc 
 
 # Disktop 
 if [ $setup = 'i' ]; then pacman -S i3-wm i3lock-color
 elif [ $setup = 'b' ]; then pacman -S bspwm sxhkd
 fi
 
-pacman -S polybar picom nitrogen rofi nitrogen
+pacman -S polybar picom rofi nitrogen
 
 # Editing
-pacman -S alacritty neovim gimp scrot firefox 
+pacman -S alacritty neovim gimp scrot qutebrowser 
 
 # Social
 pacman -S discord telegram-desktop thunderbird
 
+# MISC
+pacman -S unzip
 
 
+# Fonts
+ft_dir=$($PWD/no-stow/fonts/)
+fonts=$(ls $ft_dir | awk -F '.' 'print $2')
+
+echo $font | xargs -n 1 -I {} unzip $ft_dir/{}.zip -d {}
+mv $ft_dir/*/ /usr/share/fonts/
