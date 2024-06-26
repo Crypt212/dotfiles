@@ -1,5 +1,5 @@
 # Welcome
-A setup for {bspwm or i3} desktop manager with some additional packages and fonts added.
+A setup for {bspwm or i3} desktop manager with some additional packages added.
 
 ## Installation
 Simply run setup.sh file, it will symlink the dotfiles to your config files, and install some packages, comment out what you don't need.
