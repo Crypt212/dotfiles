@@ -26,7 +26,7 @@ fi
 pacman -S polybar picom rofi nitrogen
 
 # Editing
-pacman -S alacritty neovim gimp scrot qutebrowser 
+pacman -S alacritty neovim gimp scrot firefox 
 
 # Social
 pacman -S discord telegram-desktop thunderbird

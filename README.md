@@ -56,13 +56,12 @@ xorg
     <li>neovim
     <li>gimp
     <li>scrot
-    <li>qutebrowser 
+    <li>firefox 
 </ul>
 
 ### Social
 <ul>
     <li>discord
     <li>telegram-desktop
-    <li>thunderbird
 </ul>
 
