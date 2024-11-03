@@ -20,6 +20,13 @@ return {
     },
   },
 
+  {
+    "olrtg/nvim-emmet",
+    config = function()
+      vim.keymap.set({ "n", "v" }, "<leader>xe", require("nvim-emmet").wrap_with_abbreviation)
+    end,
+  },
+
   -- change trouble config
   {
     "folke/trouble.nvim",
@@ -71,6 +78,7 @@ return {
       ---@type lspconfig.options
       servers = {
         -- pyright will be automatically installed with mason and loaded with lspconfig
+        "clangd",
         pyright = {},
       },
     },
@@ -121,7 +129,7 @@ return {
     opts = {
       ensure_installed = {
         "c",
-        "c++",
+        "cpp",
         "dart",
         "bash",
         "html",

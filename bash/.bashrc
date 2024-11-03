@@ -52,6 +52,7 @@ alias ll='ls -l'
 alias la='ls -a'
 alias lla='ls -la'
 alias vim='nvim'
+alias fontlist='fc-list | awk -F ":" "{print $2}"'
 
 ## Prompt Customization
 
@@ -97,3 +98,5 @@ export ANDROID_HOME=/opt/android-sdk
 export ANDROID_SDK_ROOT=/opt/android-sdk
 #export ANDROID_SWT=/usr/share/java
 export PATH=${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/tools/bin
+export JAVA_HOME=/usr/lib/jvm/java-22-openjdk
+export PATH=${PATH}:$JAVA_HOME/bin

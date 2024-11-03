@@ -31,7 +31,7 @@ white = "#B8C0E0"
 yellow = "#EED49F"
 
 [colors.hints.end]
-background = "#A5ADCB"
+background = "#4d1a9e"
 foreground = "#24273A"
 
 [colors.hints.start]
@@ -49,7 +49,7 @@ white = "#B8C0E0"
 yellow = "#EED49F"
 
 [colors.primary]
-background = "#24273A"
+background = "#212121"
 bright_foreground = "#CAD3F5"
 dim_foreground = "#CAD3F5"
 foreground = "#CAD3F5"
@@ -63,7 +63,7 @@ foreground = "#24273A"
 # foreground = "#24273A"
 
 [colors.search.matches]
-background = "#A5ADCB"
+background = "#212121"
 foreground = "#24273A"
 
 [colors.selection]

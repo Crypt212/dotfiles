@@ -27,6 +27,10 @@ font pango:DejaVu Sans Mono 0
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
 
+# Screenlock
+set $i3lockwall sh ~/.config/i3/lock.sh
+bindsym $mod+Ctrl+Shift+l exec --no-startup-id $i3lockwall
+
 # Auto-start apps
 exec_always --no-startup-id $HOME/.config/i3/launch.sh
 
@@ -58,13 +62,17 @@ exec --no-startup-id nm-applet
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
+#
+# floating pop up automatically
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="task_dialog"] floating enable
 
 # move tiling windows via drag & drop by left-clicking into the title bar,
 # or left-clicking anywhere into the window while holding the floating modifier.
@@ -159,7 +167,7 @@ bindsym $mod+4 workspace number $ws4
 bindsym $mod+5 workspace number $ws5
 bindsym $mod+6 workspace number $ws6
 bindsym $mod+7 workspace number $ws7
-bindsym $moj+8 workspace number $ws8
+bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
 
@@ -180,7 +188,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+Mod1+space exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+comma exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # gaps
 gaps inner 4
@@ -240,4 +248,24 @@ client.focused_inactive $in-bgcolor     $in-bgcolor     $in-text        $in-bgco
 client.urgent           $u-bgcolor      $u-bgcolor      $text   
 
 default_border pixel 3
+
 for_window [class="^.*"] border pixel 3
+
+
+# shutdown / restart / suspend...
+# set $mode_system "System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (CTRL+s) shutdown"
+#
+# mode '$mode_system' {
+#     bindsym l exec --no-startup-id $i3lockwall, mode "default"
+#     bindsym e exec --no-startup-id i3-msg exit, mode "default"
+#     bindsym s exec --no-startup-id $i3lockwall && systemctl suspend, mode "default"
+#     bindsym h exec --no-startup-id $i3lockwall && systemctl hibernate, mode "default"
+#     bindsym r exec --no-startup-id systemctl reboot, mode "default"
+#     bindsym Ctrl+s exec --no-startup-id systemctl poweroff -i, mode "default"
+#
+#     # back to normal: Enter or Escape
+#     bindsym Return mode "default"
+#     bindsym Escape mode "default"
+# }
+#
+# bindsym $mod+Ctrl+l mode $mode_system
