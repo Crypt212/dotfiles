@@ -1,0 +1,31 @@
+sub on_user_command {
+  my ($self, $cmd) = @_;
+  
+  open my $log, '>>', '/tmp/urxvt.log';
+  print $log "Command received: $cmd\n";
+
+  if ($cmd eq "font-tab-refresh:smaller-font-and-refresh") {
+    print $log "Executed: ";
+    if ($self->can("resize_font")) {
+        $self->resize_font("smaller");
+        print $log "resize, ";
+    }
+    if ($self->can("refresh")) {
+        $self->refresh;
+        print $log "refresh";
+    }
+  } elsif ($cmd eq "font-tab-refresh:bigger-font-and-refresh") {
+    print $log "Executed: ";
+    if ($self->can("resize_font")) {
+        $self->resize_font("bigger");
+        print $log "resize, ";
+    }
+    if ($self->can("refresh")) {
+        $self->refresh;
+        print $log "refresh";
+    }
+  }
+    print $log "\n";
+
+  close $log;
+}

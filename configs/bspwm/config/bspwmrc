@@ -1,0 +1,32 @@
+#!/bin/bash
+
+xrandr --output LVDS-1 --primary --mode 1280x800 --rotate normal &
+bspc monitor LVDS-1 -d 1 2 3 4 5 6 7 8 9 10 &
+bspc config window_gap 8 &
+
+# Rules
+
+bspc config split_ratio 0.52 &
+bspc config borderless_monocle true &
+bspc config single_monocle = true &
+bspc config gapless_monocle false &
+bspc config pointer_motion_interval 5 &
+bspc config border_width 0 &
+
+xsetroot -cursor_name left_ptr &
+
+# Rules
+
+bspc rule -a firefox desktop='^10' follow=on
+bspc rule -a discord desktop='^9' follow=on 
+bspc rule -a Gimp-2.10 desktop='^8' follow=on 
+bspc rule -a TelegramDesktop desktop='^7' follow=on 
+bspc rule -a thunderbird-default desktop='^6' follow=on 
+
+# Autostart
+
+sxhkd &
+nitrogen --restore
+killall picom
+picom --config $HOME/.config/picom/picom.conf &
+$HOME/.config/polybar/launch.sh

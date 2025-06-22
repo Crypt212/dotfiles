@@ -1,0 +1,139 @@
+{
+  "metadata": {
+    "name": "Dotfiles Manager",
+    "description": "Modular package and dotfile management for Arch Linux",
+    "version": "2.0",
+    "default_install_method": "pacman",
+    "backup": true
+  },
+  "packages": {
+    "i3wm": [
+      {
+        "package_name": "i3wm",
+        "config_file_name": "i3",
+        "symlinks": [
+          { "src": "config", "dest": "$HOME/.config/i3" }
+        ]
+      }
+    ],
+    "bspwm": [
+      {
+        "package_name": "bspwm",
+        "symlinks": [
+          { "src": "config", "dest": "$HOME/.config/bspwm" }
+        ]
+      },
+      {
+        "package_name": "sxhkd",
+        "symlinks": [
+          { "src": "config", "dest": "$HOME/.config/sxhkd" }
+        ]
+      }
+    ],
+    "widgets": [
+      {
+        "package_name": "rofi",
+        "symlinks": [
+          { "src": "config", "dest": "$HOME/.config/rofi" }
+        ]
+      },
+      {
+        "package_name": "picom",
+        "symlinks": [
+          { "src": "config", "dest": "$HOME/.config/picom" }
+        ]
+      },
+      {
+        "package_name": "nitrogen",
+        "symlinks": [
+          { "src": "config", "dest": "$HOME/.config/nitrogen" }
+        ]
+      },
+      {
+        "package_name": "polybar",
+        "symlinks": [
+          { "src": "/config", "dest": "$HOME/.config/polybar" }
+        ]
+      },
+      {
+        "package_name": "scrot"
+      }
+    ],
+    "development": [
+      {
+        "package_name": "neovim",
+        "config_file_name": "nvim",
+        "symlinks": [
+          { "src": "config", "dest": "$HOME/.config/nvim" }
+        ]
+      },
+      {
+        "package_name": "g++"
+      },
+      {
+        "package_name": "gcc"
+      },
+      {
+        "package_name": "gdb"
+      },
+      {
+        "package_name": "cmake"
+      },
+      {
+        "package_name": "nodejs",
+	"config_file_name": "nodejs",
+        "install_scripts": [
+		"curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh",
+		"\\. '$HOME/.nvm/nvm.sh'",
+		"nvm install -lts",
+		"nvm current",
+		"cat ${this.config_file_name}/global_packs.txt | xargs -I {} npm install -g {}"
+	],
+        "symlinks": [
+          { "src": "zathurarc", "dest": "$HOME/.zathurarc" },
+          { "src": "config", "dest": "$HOME/.config/zathura" }
+        ]
+      }
+    ],
+    "textEditors": [
+      {
+        "package_name": "alacritty",
+        "symlinks": [
+          { "src": "config", "dest": "$HOME/.config/alacritty" }
+        ]
+      },
+      {
+        "package_name": "urxvt",
+        "symlinks": [
+          { "src": "config", "dest": "$HOME/.config/urxvt" },
+          { "src": "Xresources", "dest": "$HOME/.Xresources" }
+        ]
+      }
+    ],
+    "terminal": [
+      {
+        "package_name": "bash",
+        "symlinks": [
+          { "src": "bashrc", "dest": "$HOME/.bashrc" }
+        ]
+      }
+
+    ],
+    "social": [
+      {
+        "package_name": "discord",
+        "install_method": "flatpak",
+        "flatpak_id": "com.discordapp.Discord"
+      }
+    ],
+    "document_readers": [
+      {
+        "package_name": "zathura",
+        "symlinks": [
+          { "src": "zathurarc", "dest": "$HOME/.zathurarc" },
+          { "src": "config", "dest": "$HOME/.config/zathura" }
+        ]
+      }
+    ]
+  }
+}

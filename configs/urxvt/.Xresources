@@ -1,0 +1,31 @@
+#include "/home/crypt/Colorscheme/Xresources/melange"
+
+
+! URxvt.keysym.C-minus: resize-font:smaller
+URxvt.keysym.C-minus: perl:smaller-font-and-refresh
+URxvt.keysym.C-plus:  perl:bigger-font-and-refresh
+
+URxvt.font: xft:GohuFont 11 Nerd Font Mono:size=10:antialias=true:minspace=False
+
+URxvt.intensityStyles: false
+
+URxvt.perl-lib: /home/crypt/.config/urxvt/ext
+URxvt.perl-ext-common: default,resize-font,tabbed,font-tab-refresh
+
+URxvt.url-launcher: firefox
+URxvt.url-select.underline: true
+URxvt.matcher.button: 1
+
+! URxvt.tabbed.tabbar-fg: <colour-index, default 3>
+! URxvt.tabbed.tabbar-bg: <colour-index, default 0>
+! URxvt.tabbed.tab-fg:    <colour-index, default 0>
+! URxvt.tabbed.tab-bg:    <colour-index, default 1>
+
+URxvt.scrollBar: false
+
+! URxvt*transparent: true
+URxvt*depth: 32
+
+! Disable ISO 14755 (Unicode input)
+URxvt.iso14755: false
+URxvt.iso14755_52: false

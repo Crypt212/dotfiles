@@ -1,43 +1,33 @@
 #!/bin/bash
 
-echo "Do you want to setup with i3 or bspwm? [i,b]"
+echo "Choose setup with i3 or bspwm? [i,b]"
 read setup
 
-dirs=$(ls -l | grep '^d' | awk '$NF != "no-stow" && $NF != "i3" && $NF != "bspwm" {print $NF}')
-pacman -S stow git
+echo "Install or uninstall? [i,u]"
+read install
 
-if [ $setup = 'i' ]; then stow i3
-elif [ $setup = 'b' ]; then stow bspwm
+pacman -S stow git --needed --noconfirm
+
+if [ $install = 'i' ]; then
+	if [ $setup = 'i' ]; then stow i3 -d "$SCRIPT_DIR/to-stow" -t ~
+	elif [ $setup = 'b' ]; then stow bspwm -d "$SCRIPT_DIR/to-stow" -t ~
+	fi
+
+	if [ $setup = 'i' ]; then pacman -S i3-wm i3lock-color --needed --noconfirm
+	elif [ $setup = 'b' ]; then pacman -S bspwm sxhkd --needed --noconfirm
+	fi
+else
+	if [ $setup = 'i' ]; then stow -D i3 -d "$SCRIPT_DIR/to-stow" -t ~
+	elif [ $setup = 'b' ]; then stow -D bspwm -d "$SCRIPT_DIR/to-stow" -t ~
+	fi
+
+	if [ $setup = 'i' ]; then pacman -Rns i3-wm i3lock-color --noconfirm
+	elif [ $setup = 'b' ]; then pacman -Rns bspwm sxhkd --noconfirm
+	fi
 fi
-
-echo $dirs | xargs -n 1 -I {} stow {} -R
-
-# Base
-pacman -S xorg
-
-# Dev
-pacman -S curl nodejs g++ gcc 
-
-# Disktop 
-if [ $setup = 'i' ]; then pacman -S i3-wm i3lock-color
-elif [ $setup = 'b' ]; then pacman -S bspwm sxhkd
-fi
-
-pacman -S polybar picom rofi nitrogen
-
-# Editing
-pacman -S alacritty neovim gimp scrot firefox 
-
-# Social
-pacman -S discord telegram-desktop thunderbird
-
-# MISC
-pacman -S unzip
-
 
 # Fonts
 ft_dir=$($PWD/no-stow/fonts/)
 fonts=$(ls $ft_dir | awk -F '.' 'print $2')
-
 echo $font | xargs -n 1 -I {} unzip $ft_dir/{}.zip -d {}
 mv $ft_dir/*/ /usr/share/fonts/

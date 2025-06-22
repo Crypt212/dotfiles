@@ -1,0 +1,90 @@
+configuration{
+    modi: "drun,run";
+    lines: 8;
+    font: "GohuFont 14 Nerd Font 14";
+    show-icons: false;
+    icon-theme: "Oranchelo";
+    terminal: "alacritty";
+    drun-display-format: "{icon} {name}";
+    location: 0;
+    disable-history: false;
+    hide-scrollbar: true;
+    // display-drun: "Apps";        // 
+    // display-run: "Run";          // 
+    display-drun: "run:";
+    display-run: "";
+    display-window: "window";
+    display-Network: "Network";  // 󰤨  
+    // sidebar-mode: true;
+}
+
+@theme "theme"
+
+window {
+    width: 400px;
+    height: 390px;
+    background-color: @window-bg;
+    border-color: @window-border;
+    border: 2px solid;
+    padding: 1px;
+}
+
+mainbox {
+
+    background-color: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+inputbar {
+    children: [prompt,entry];
+    background-color: @inputbar-bg;
+    text-color: @inputbar-text;
+    font-weight: 1000;
+    border-color: @inputbar-border;
+    border: 2px solid;
+    margin: 4px;
+    padding: 4px;
+    border-radius: 2px;
+}
+
+prompt {
+    background-color: inherit;
+    text-color: inherit;
+}
+
+entry {
+    padding: 1px;
+    margin: 0;
+    text-color: @entry-text;
+    background-color: inherit;
+    placeholder:"Search";
+
+}
+
+listview {
+    border: 2px;
+    padding: 1px;
+    margin: 0 4px 4px;
+    border-color: @listview-border;
+    background-color: @listview-bg;
+    border-radius: 2px;
+    border: 2px solid;
+    padding: 4px;
+    columns: 1;
+}
+
+element {
+    padding: 1px;
+    background-color: inherit;
+}
+
+element-text, element-icon {
+    background-color: inherit;
+    text-color:       @element-text;
+}
+
+element-text selected, element-icon selected {
+    background-color: @selected-element-bg;
+    text-color:       @selected-element-text;
+}

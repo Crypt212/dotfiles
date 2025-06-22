@@ -1,0 +1,18 @@
+* {
+    window-bg: #292522;
+    window-border: #B380B0;
+
+    inputbar-bg: #403A36;
+    inputbar-text: #D47766;
+    inputbar-border: #BD8183;
+
+    entry-text: #E49B5D;
+
+    listview-bg: #34302C;
+    listview-border: #89B3B6;
+
+    element-text: #C1A78E;
+
+    selected-element-bg: #403A36;
+    selected-element-text: #7F91B2;
+}
