@@ -1,0 +1,90 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 30,
+    "spacing": 4,
+    "modules-left": ["sway/workspaces", "sway/mode", "sway/window"],
+    "modules-center": ["clock","network"],
+    "modules-right": ["cpu", "memory", "temperature", "battery", "pulseaudio", "sway/language"],
+    
+    // Module configurations
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "format": "{name}"
+    },
+
+    "sway/language": {
+        "format": "{short} {variant}",
+        "on-click": "swaymsg input type:keyboard xkb_switch_layout next",
+        "width": "30px"
+    },
+        
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "format": "{name}"
+    },
+
+    "custom/battery-notify": {
+        "exec": "~/.config/waybar/battery-notify.sh",
+        "interval": 10,
+        "return-type": "json"
+    },
+
+    "cpu": {
+        "format": "{icon} {usage}% ",
+        "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
+    },
+
+    "memory": {
+        "format": "{icon} {percentage}% ",
+        "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
+    },
+
+    "pulseaudio": {
+        "format": "{volume}% {icon}",
+        "format-bluetooth": "{volume}% {icon}",
+        "format-muted": "-- ",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "default": ["", ""]
+        },
+        "scroll-step": 1,
+        "on-click": "pavucontrol",
+        "ignored-sinks": ["Easy Effects Sink"]
+    },
+    
+    "clock": {
+        "format": "{:%H:%M:%S}",
+        "tooltip-format": "{:%A, %d %B %Y | %H:%M}"
+    },
+    
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-icons": ["", "", "", "", ""]
+    },
+
+    "network": {
+        "format": "{ifname}",
+        "format-wifi": "{essid} ({signalStrength}%) {icon} ",
+        "format-ethernet": "{ipaddr}/{cidr} ",
+        "format-aethernet": "{ipaddr}/{cidr} 󰊗",
+        "tooltip-format": "{ifname} via {gwaddr} 󰊗",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+        "tooltip-format-ethernet": "{ifname} ",
+        "format-disconnected": "Disconnected ⚠",
+        "tooltip-format-disconnected": "Disconnected",
+        "max-length": 50
+    },
+    
+    "tray": {
+        "spacing": 10
+    }
+}

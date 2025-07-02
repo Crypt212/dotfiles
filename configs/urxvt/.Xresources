@@ -1,4 +1,4 @@
-#include "/home/crypt/Colorscheme/Xresources/melange"
+#include "/home/crypt/dotfiles/colorschemes/Xresources/melange"
 
 
 ! URxvt.keysym.C-minus: resize-font:smaller

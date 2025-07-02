@@ -1,0 +1,134 @@
+
+* {
+	/* --fg: "#ECE1D7"; */
+	/* --bright-black: "#867462"; */
+	/* --bright-blue: "#A3A9CE"; */
+	/* --bright-cyan: "#89B3B6"; */
+	/* --bright-green: "#85B695"; */
+	/* --bright-magenta: "#CF9BC2"; */
+	/* --bright-red: "#D47766"; */
+	/* --bright-white: "#ECE1D7"; */
+	/* --bright-yellow: "#EBC06D"; */
+	/* --dark-black: "#292522"; */
+	/* --dark-blue: "#273142"; */
+	/* --dark-cyan: "#253333"; */
+	/* --dark-green: "#233524"; */
+	/* --dark-magenta: "#422741"; */
+	/* --dark-red: "#7D2A2F"; */
+	/* --dark-white: "#403A36"; */
+	/* --dark-yellow: "#8B7449"; */
+	/* --black: "#34302C"; */
+	/* --blue: "#7F91B2"; */
+	/* --cyan: "#7B9695"; */
+	/* --green: "#78997A"; */
+	/* --magenta: "#B380B0"; */
+	/* --red: "#BD8183"; */
+	/* --white: "#C1A78E"; */
+	/* --yellow: "#E49B5D"; */
+    border: none;
+    border-radius: 0;
+    font-family: "Fira Code", "Font Awesome 5 Free";
+    font-size: 13px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: #292522;
+    color: #89B3B6;
+  box-shadow: 10px 10px 5px lightblue;
+}
+
+#workspaces button {
+    padding: 0 5px;
+    background: transparent;
+    color: #ece1d7;
+    border-bottom: 3px solid #ece1d7;
+}
+
+#workspaces button.focused, button.active  {
+    color: #A3A9CE;
+    background: #273142;
+    border-bottom: 3px solid #A3A9CE;
+}
+#workspaces button.urgent {
+    color: #D47766;
+    background: #7D2A2F;
+    border-bottom: 3px solid #D47766;
+}
+
+#mode {
+    background: #bf616a;
+    padding: 0 5px;
+}
+
+#clock, #battery, #cpu, #memory, #network, #tray {
+    padding: 0 8px;
+    margin: 0 2px;
+}
+
+#clock {
+    color: #ebc05d;
+}
+
+
+#battery.discharging {
+    color: #d47766;
+}
+#battery.charging {
+    color: #a3a9ce;
+}
+#battery.full {
+    color: #a3be8c;
+}
+#cpu {
+    color: #ece1d7;
+}
+#memory {
+    color: #cf9bc2;
+}
+
+#network.wifi {
+    color: #bd8183;
+}
+#network.connected {
+    color: #d47766;
+}
+
+#battery.charging {
+    color: #a3be8c;
+}
+#battery.full {
+    color: #a3be8c;
+}
+#battery.warning:not(.charging) {
+    color: #ebcb8b;
+}
+
+#battery.critical:not(.charging) {
+    color: #bf616a;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#language {
+    padding: 0 5px;
+}
+#language.us {
+    color: #BD8183;
+    border-bottom: 3px solid #BD8183;
+}
+
+#language.ara {
+    color: #C1A78E;
+    border-bottom: 3px solid #C1A78E;
+}
+
+@keyframes blink {
+    to {
+        background-color: #bf616a;
+        color: #2e3440;
+    }
+}

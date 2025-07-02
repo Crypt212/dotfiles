@@ -1,9 +1,0 @@
-; Polybar colors generated from .Xresources (22 يون, 2025 EEST 12:21:15 ص)
-[colors]
-background = #292522
-background-alt = #34302C  ; or another color (e.g., color8)
-foreground = #ECE1D7
-primary = #7F91B2         ; e.g., color4 for primary
-secondary = #78997A       ; e.g., color2 for secondary
-alert = #BD8183           ; e.g., color1 for alert
-disabled = #7B9695        ; e.g., color6 for disabled

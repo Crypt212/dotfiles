@@ -1,5 +1,3 @@
-clear
-
 #### Defaults
 
 # If not running interactively, don't do anything
@@ -50,11 +48,9 @@ export VISUAL='nvim'
 
 alias ls='ls --color=auto'
 alias l='ls'
-alias conda='/home/crypt/anaconda3/bin/conda'
 alias ll='ls -l'
 alias la='ls -a'
 alias lla='ls -la'
-alias vim='nvim'
 alias fontlist='fc-list | awk -F ":" "{print $2}"'
 
 ## Prompt Customization
@@ -93,9 +89,7 @@ HiddenT='\[\033[;8m\]'
 # Prompt
 PS1="${debian_chroot:+($debian_chroot)}| $PlainT$PurpleFG\u$BoldT$WhiteFG@$RedFG\h$WhiteFG | $BlueFG\w$WhiteFG ~>$PlainT "
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
+source /usr/share/nvm/init-nvm.sh
 
 export ANDROID_HOME=/opt/android-sdk
 export ANDROID_SDK_ROOT=/opt/android-sdk
@@ -112,3 +106,5 @@ bind 'set show-all-if-ambiguous on'
 bind 'set completion-prefix-display-length 2'
 bind 'set colored-stats on'
 bind 'set colored-completion-prefix on'
+
+clear
